@@ -59,7 +59,7 @@ function Home() {
   }, [currentPage, genre, searchQuery]);
 
 
-  const borrowBook = async (email, bookId) => {
+  const borrowBook = async (email=null, bookId=null) => {
     if (email && bookId) {
       console.log(email + " : " + bookId);
       try {
