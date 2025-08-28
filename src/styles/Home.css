@@ -1,0 +1,713 @@
+.home-container {
+  padding: 30px;
+  margin-top: 70px;
+  min-height: 100vh;
+  /* avoid navbar overlap */
+}
+
+/* Filters Section (includes search + dropdowns) */
+.filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 350px;
+  border: 1px solid #333;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.search-box:focus-within {
+  border-color: #0af;
+  box-shadow: 0 4px 12px rgba(0, 170, 255, 0.3);
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 14px;
+  font-size: 15px;
+  background: transparent;
+  color: #eee;
+}
+
+.search-box input::placeholder {
+  color: #777;
+}
+
+.search-box button {
+  border: none;
+  background: #0af;
+  color: #fff;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-box button:hover {
+  background: #0088cc;
+}
+
+/* Dropdown Filters */
+.filters select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  font-size: 16px;
+  cursor: pointer;
+  background: #111;
+  color: #eee;
+}
+
+.filters select:hover {
+  border-color: #0af;
+  background: #1a1a1a;
+}
+
+/* Grid layout */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  position: relative;
+}
+
+.no-books {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+}
+
+
+/* Book Card */
+.book-card {
+  background: #111;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  color: #eee;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 170, 255, 0.3);
+}
+
+.book-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Book Title */
+.book-card h3 {
+  font-size: 16px;
+  margin: 10px 0 5px;
+  font-weight: 600;
+  color: #fff;
+  height: 50px;
+  overflow: hidden;
+}
+
+/* Author & Details */
+.book-card p {
+  font-size: 14px;
+  margin: 2px 0;
+  color: #aaa;
+  height: 30px;
+  overflow: hidden;
+}
+
+.book-card .genre-tag {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 3px 20px;
+  border-radius: 5px;
+  background: #222;
+  font-size: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+}
+
+/* .book-card.unavailable {
+  opacity: 0.5;
+}
+
+.book-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  pointer-events: none;
+  border-radius: 10px;
+} */
+
+.buy-button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Centered unavailable text */
+.unavailable-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* subtle dark overlay to make text pop */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.unavailable-overlay span {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+}
+
+
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #222;
+  color: #eee;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background: #0af;
+  color: #000;
+}
+
+.pagination button.active {
+  background: #ff9900;
+  font-weight: bold;
+  color: #000;
+}
+
+.pagination button:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+.buy-button {
+  width: 70%;
+  padding: 5px 5px;
+  border-radius: 5px;
+  border: none;
+  background: linear-gradient(90deg, #a855f7, #9333ea);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* extra effects */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Hover effect with glowing text */
+.buy-button:hover {
+  background: linear-gradient(90deg, #9333ea, #a855f7);
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #a855f7, 0 0 20px #9333ea;
+
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.7), 0 0 20px rgba(147, 51, 234, 0.7);
+}
+
+/* Optional: subtle pulse animation while hovering */
+.buy-button:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent);
+  animation: shine 1.2s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+
+  50% {
+    left: 100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.availability {
+  font-size: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+}
+
+.edit-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.edit-button,
+.delete-button {
+  width: 40%;
+  padding: 5px 5px;
+  border-radius: 5px;
+  border: none;
+  background: linear-gradient(90deg, #a855f7, #9333ea);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* extra effects */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background: linear-gradient(90deg, #9333ea, #a855f7);
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #a855f7, 0 0 20px #9333ea;
+
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.7), 0 0 20px rgba(147, 51, 234, 0.7);
+}
+
+/* sort filter */
+/* ===== Sort Filter Styling ===== */
+.sort-filter {
+  display: flex;
+  width: 30%;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 15px 20px;
+  padding: 10px 15px;
+  background: #111;
+  /* dark background */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 14px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.sort-filter label {
+  margin-right: 10px;
+  font-weight: 500;
+  color: #ddd;
+  font-size: 15px;
+}
+
+.sort-filter select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #1a1a1a;
+  color: #fff;
+  cursor: pointer;
+  font-size: 10px;
+  transition: all 0.3s ease;
+}
+
+.sort-filter select:hover {
+  border-color: #0f9d58;
+  /* Google green style */
+}
+
+.sort-filter select:focus {
+  outline: none;
+  border-color: #4285f4;
+  /* Google blue */
+  box-shadow: 0 0 6px rgba(66, 133, 244, 0.6);
+}
+
+/* ✅ Add Book Container */
+.add-book-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  /* button on right side */
+  margin-bottom: 20px;
+}
+
+/* ✅ Add Book Button */
+.add-book-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #444;
+  /* dark theme, matches filters */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.add-book-button i {
+  font-size: 16px;
+}
+
+/* Hover effect */
+.add-book-button:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Active (click) effect */
+.add-book-button:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Accessibility focus */
+.add-book-button:focus {
+  outline: 2px solid #888;
+  outline-offset: 2px;
+}
+
+/* ✅ Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* ✅ Modal Box */
+.modal {
+  background: #111;
+  color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+  animation: fadeInUp 0.3s ease;
+}
+
+.modal h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 22px;
+  text-align: center;
+}
+
+/* ✅ Form */
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #ccc;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  background: #2e2e2e;
+  border: 1px solid #666;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* ✅ Actions */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.modal-actions button:first-child {
+  background: #333;
+  color: #fff;
+}
+
+.modal-actions button:first-child:hover {
+  background: #444;
+}
+
+.modal-actions button:last-child {
+  background: #007bff;
+  color: #fff;
+}
+
+.modal-actions button:last-child:hover {
+  background: #0062cc;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+/* Responsive Grid */
+@media (min-width: 1024px) {
+
+  .books-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+}
+
+@media (max-width: 768px) {
+  .books-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sort-filter {
+    width: 70%;
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 468px) {
+  .books-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Make filters stack neatly but keep search box intact */
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .no-books{
+      font-size: 12px;
+  }
+
+  .search-box {
+    max-width: 100%;
+    border-radius: 25px;
+  }
+
+  .search-box input {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .search-box button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .book-card {
+    height: 310px;
+    /* width: 160px; */
+    padding: 10px;
+  }
+
+  .book-card.admin {
+    height: 335px;
+  }
+
+  .book-card img {
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .book-card h3 {
+    font-size: 10px;
+    height: 30px;
+    overflow: hidden;
+  }
+
+  .book-card p {
+    font-size: 9px;
+    height: 25px;
+    overflow: hidden;
+  }
+
+  .genre-tag {
+    font-size: 10px;
+    padding: 2px 6px;
+    height: 3px;
+  }
+
+  .pagination button {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .availability {
+    font-size: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+  }
+
+  .buy-button {
+    width: 70%;
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: none;
+    background: linear-gradient(90deg, #a855f7, #9333ea);
+    color: #fff;
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* margin-bottom: 90px; */
+  }
+
+  .edit-section {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .edit-button,
+  .delete-button {
+    width: 70%;
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: none;
+    background: linear-gradient(90deg, #a855f7, #9333ea);
+    color: #fff;
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .sort-filter {
+    width: 90%;
+    margin-top: 0px;
+  }
+
+  .sort-filter label {
+    margin-right: 5px;
+    font-size: 10px;
+  }
+
+  .sort-filter select {
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+}
+
+
+@media (max-width:380px) {
+  .modal {
+    height: 100%;
+    width: 90%;
+  }
+
+  .form-group {
+    height: 50px;
+  }
+}

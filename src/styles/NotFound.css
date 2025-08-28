@@ -1,0 +1,57 @@
+/* General container styling */
+.notfound-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f4f4f4, #e4e4e4);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Content box styling */
+  .notfound-content {
+    text-align: center;
+    padding: 2rem;
+    background: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+  }
+  
+  /* Error code styling */
+  .error-code {
+    font-size: 72px;
+    color: #ff6b6b;
+    margin: 0;
+  }
+  
+  /* Message styling */
+  .message {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  /* Hint text styling */
+  .hint {
+    font-size: 16px;
+    color: #666;
+    margin: 1rem 0;
+  }
+  
+  /* Button styling */
+  .button {
+    padding: 0.8rem 1.5rem;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
