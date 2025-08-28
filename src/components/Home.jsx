@@ -157,7 +157,7 @@ function Home() {
                   className="buy-button"
                   disabled={isUnavailable}
                   onClick={() => {
-                    borrowBook(user.email, book._id);
+                    borrowBook(user?.email, book?._id);
                   }}
                 >
                   Borrow
