@@ -11,11 +11,13 @@ import BorrowsHistory from './components/Members/BorrowHistory.jsx';
 import AdminHome from './components/Admin/AdminHome.jsx';
 import AdminReports from './components/Admin/AdminReports.jsx';
 import Store from './context/Store.jsx';
+import NotFound from "./components/NotFound.jsx"
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement:<NotFound/>,
     children: [
       {
         path: "/",
