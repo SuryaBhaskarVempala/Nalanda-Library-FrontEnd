@@ -52,7 +52,7 @@ function Navbar() {
     return (
         <>
             <section id="navbar">
-                <div className="logo">
+                <div className="logo" onClick={() => window.location.href = "/"}>
                     <i className="fa-solid fa-book"></i>
                     <h1>Nalanda Library</h1>
                 </div>
