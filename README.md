@@ -1,12 +1,29 @@
-# React + Vite
+# 📚 Nalanda Library Front-End
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **Front-End** of the Nalanda Library project, a modern and responsive web application to manage library resources efficiently.
 
-Currently, two official plugins are available:
+## 🔗 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Front-End: [https://nalanda-library.netlify.app/](https://nalanda-library.netlify.app/)  
+- Back-End: [https://nalanda-library-backend.onrender.com/](https://nalanda-library-backend.onrender.com/)
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** - For building the user interface  
+- **Vite** - Fast development build tool  
+- **Axios** - For API requests and communication with back-end  
+
+## ⚡ Features
+
+- **JWT Authentication**: Secure login and signup for users  
+- **User Functionality**:
+  - Browse and search books  
+  - Borrow and return books  
+  - Search books by author
+  - Pagination 
+- **Admin Functionality**:
+  - Add, update, and delete books  
+  - Manage users  
+  - Pagination, sorting, and advanced search for books  
+- **Responsive Design**: Works smoothly on both desktop and mobile devices  
+- **Integration with Back-End API**: Fully functional communication with the back-end for book and user management
